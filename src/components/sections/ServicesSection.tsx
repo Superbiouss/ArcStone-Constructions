@@ -92,7 +92,7 @@ export default function ServicesSection() {
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Comprehensive Engineering &{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Design Solutions
               </span>
             </h2>
@@ -106,14 +106,14 @@ export default function ServicesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 80}>
-              <div className="group relative h-full bg-card rounded-2xl p-7 border border-border hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-default overflow-hidden">
-                {/* Background Gradient on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`} />
+              <div className="group relative h-full bg-card rounded-lg p-7 border border-border hover:border-accent transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated cursor-default overflow-hidden">
+                {/* Background Hover */}
+                <div className={`absolute inset-0 bg-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
 
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className={`inline-flex p-3.5 rounded-2xl bg-gradient-to-br ${service.color} mb-5 shadow-lg`}>
-                    <service.icon size={24} className="text-white" />
+                  <div className={`inline-flex p-3.5 rounded-full bg-surface mb-5 group-hover:bg-accent transition-colors duration-300`}>
+                    <service.icon size={24} className="text-white group-hover:text-black transition-colors duration-300" />
                   </div>
 
                   {/* Title */}
@@ -131,13 +131,13 @@ export default function ServicesSection() {
                     {service.deliverables.slice(0, 4).map((item) => (
                       <span
                         key={item}
-                        className="px-2.5 py-1 rounded-lg bg-muted text-muted-foreground text-xs font-body"
+                        className="px-2.5 py-1 rounded-full bg-surface border border-border text-muted-foreground text-xs font-body"
                       >
                         {item}
                       </span>
                     ))}
                     {service.deliverables.length > 4 && (
-                      <span className="px-2.5 py-1 rounded-lg bg-muted text-muted-foreground text-xs font-body">
+                      <span className="px-2.5 py-1 rounded-full bg-surface border border-border text-muted-foreground text-xs font-body">
                         +{service.deliverables.length - 4} more
                       </span>
                     )}

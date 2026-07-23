@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               What Our{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Clients Say
               </span>
             </h2>
@@ -85,9 +85,9 @@ export default function TestimonialsSection() {
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
-            <div className="bg-card rounded-3xl p-8 md:p-12 border border-border shadow-xl relative overflow-hidden">
+            <div className="bg-card rounded-lg p-8 md:p-12 border border-border shadow-elevated relative overflow-hidden">
               {/* Decorative Quote */}
-              <Quote size={80} className="absolute top-6 right-6 text-accent/5" />
+              <Quote size={80} className="absolute top-6 right-6 text-accent/10" />
 
               {/* Stars */}
               <div className="flex gap-1 mb-6">
@@ -104,7 +104,7 @@ export default function TestimonialsSection() {
               {/* Author */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-orange-400 flex items-center justify-center text-white font-heading font-bold text-xl">
+                  <div className="w-14 h-14 rounded-full bg-surface border border-border flex items-center justify-center text-accent font-heading font-bold text-xl">
                     {testimonials[current].name.charAt(0)}
                   </div>
                   <div>
@@ -123,7 +123,7 @@ export default function TestimonialsSection() {
             <div className="flex items-center justify-center gap-4 mt-8">
               <button
                 onClick={prev}
-                className="w-12 h-12 rounded-full bg-card border border-border hover:border-accent/50 flex items-center justify-center text-foreground hover:text-accent transition-all duration-200 cursor-pointer shadow-sm"
+                className="w-12 h-12 rounded-full bg-card border border-border hover:bg-surface flex items-center justify-center text-foreground hover:text-accent transition-all duration-200 cursor-pointer shadow-elevated"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={20} />
@@ -147,7 +147,7 @@ export default function TestimonialsSection() {
 
               <button
                 onClick={next}
-                className="w-12 h-12 rounded-full bg-card border border-border hover:border-accent/50 flex items-center justify-center text-foreground hover:text-accent transition-all duration-200 cursor-pointer shadow-sm"
+                className="w-12 h-12 rounded-full bg-card border border-border hover:bg-surface flex items-center justify-center text-foreground hover:text-accent transition-all duration-200 cursor-pointer shadow-elevated"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={20} />

@@ -41,7 +41,7 @@ export default function FAQSection() {
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Frequently Asked{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Questions
               </span>
             </h2>
@@ -53,9 +53,9 @@ export default function FAQSection() {
           {faqs.map((faq, i) => (
             <ScrollReveal key={i} delay={i * 80}>
               <div
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                className={`rounded-lg border transition-all duration-300 overflow-hidden ${
                   openIndex === i
-                    ? 'border-accent/30 bg-card shadow-lg'
+                    ? 'border-accent/30 bg-card shadow-elevated'
                     : 'border-border bg-card hover:border-accent/20'
                 }`}
               >
@@ -65,8 +65,8 @@ export default function FAQSection() {
                   aria-expanded={openIndex === i}
                 >
                   <div className="flex items-center gap-4 pr-4">
-                    <div className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 ${
-                      openIndex === i ? 'bg-accent text-white' : 'bg-muted text-muted-foreground'
+                    <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                      openIndex === i ? 'bg-accent text-[#000000]' : 'bg-surface text-muted-foreground'
                     }`}>
                       <HelpCircle size={18} />
                     </div>

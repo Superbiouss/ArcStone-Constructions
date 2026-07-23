@@ -70,7 +70,7 @@ export default function PortfolioSection() {
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Our{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Featured Projects
               </span>
             </h2>
@@ -87,10 +87,10 @@ export default function PortfolioSection() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2.5 rounded-xl font-body text-sm font-medium transition-all duration-200 cursor-pointer
+                className={`px-5 py-2.5 rounded-full font-body text-sm font-bold uppercase tracking-[0.1em] transition-all duration-200 cursor-pointer
                   ${activeFilter === cat
-                    ? 'bg-accent text-white shadow-lg shadow-accent/25'
-                    : 'bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground'
+                    ? 'bg-accent text-[#000000] shadow-elevated'
+                    : 'bg-muted text-muted-foreground hover:bg-surface hover:text-white'
                   }`}
               >
                 {cat}
@@ -103,7 +103,7 @@ export default function PortfolioSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project, i) => (
             <ScrollReveal key={project.title + activeFilter} delay={i * 100}>
-              <div className="group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-accent/30 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer">
+              <div className="group relative rounded-lg overflow-hidden bg-card border border-border hover:border-accent shadow-sm hover:shadow-elevated transition-all duration-500 cursor-pointer">
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
                   <Image
@@ -117,14 +117,14 @@ export default function PortfolioSection() {
 
                   {/* Hover Content */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                    <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mb-3 shadow-2xl">
-                      <ExternalLink size={22} className="text-white" />
+                    <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mb-3 shadow-elevated">
+                      <ExternalLink size={22} className="text-[#000000]" />
                     </div>
-                    <span className="text-white font-body font-semibold text-sm">View Project</span>
+                    <span className="text-white font-body font-bold text-xs uppercase tracking-widest">View Project</span>
                   </div>
 
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-lg bg-white/90 dark:bg-black/60 backdrop-blur-sm text-xs font-body font-medium text-foreground dark:text-white">
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-xs font-body font-bold uppercase tracking-wider text-white">
                     {project.category}
                   </div>
                 </div>

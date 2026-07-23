@@ -42,7 +42,7 @@ export default function BlogSection() {
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Latest{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Articles
               </span>
             </h2>
@@ -56,9 +56,9 @@ export default function BlogSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post, i) => (
             <ScrollReveal key={post.title} delay={i * 100}>
-              <article className="group h-full bg-card rounded-2xl border border-border hover:border-accent/30 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+              <article className="group h-full bg-card rounded-lg border border-border hover:border-accent hover:shadow-elevated overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
                 {/* Thumbnail Placeholder */}
-                <div className={`relative h-48 bg-gradient-to-br ${post.gradient} overflow-hidden`}>
+                <div className={`relative h-48 bg-surface overflow-hidden`}>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-3">
@@ -67,7 +67,7 @@ export default function BlogSection() {
                     </div>
                   </div>
                   {/* Category Badge */}
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-lg bg-white/90 dark:bg-black/60 backdrop-blur-sm text-xs font-body font-medium text-foreground dark:text-white">
+                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-xs font-body font-bold uppercase tracking-wider text-white">
                     {post.category}
                   </span>
                 </div>
@@ -91,7 +91,7 @@ export default function BlogSection() {
                     {post.excerpt}
                   </p>
 
-                  <div className="flex items-center gap-1 text-accent text-sm font-body font-medium group-hover:gap-2 transition-all duration-200">
+                  <div className="flex items-center gap-1 text-accent text-xs font-body font-bold uppercase tracking-wider group-hover:gap-2 transition-all duration-200">
                     Read More <ArrowRight size={14} />
                   </div>
                 </div>

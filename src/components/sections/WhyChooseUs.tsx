@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               What Sets Us{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Apart
               </span>
             </h2>
@@ -66,9 +66,9 @@ export default function WhyChooseUs() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reasons.map((reason, i) => (
             <ScrollReveal key={reason.title} delay={i * 100}>
-              <div className="group flex gap-5 p-6 rounded-2xl hover:bg-card hover:shadow-lg hover:border hover:border-border transition-all duration-300 cursor-default">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-accent/10 group-hover:bg-accent flex items-center justify-center transition-colors duration-300">
-                  <reason.icon size={24} className="text-accent group-hover:text-white transition-colors duration-300" />
+              <div className="group flex gap-5 p-6 rounded-lg hover:bg-card hover:shadow-elevated hover:border hover:border-border transition-all duration-300 cursor-default">
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-surface group-hover:bg-accent flex items-center justify-center transition-colors duration-300">
+                  <reason.icon size={24} className="text-accent group-hover:text-black transition-colors duration-300" />
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-lg text-foreground mb-2">

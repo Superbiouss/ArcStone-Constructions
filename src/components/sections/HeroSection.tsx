@@ -22,8 +22,8 @@ export default function HeroSection() {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-accent/10 rounded-full blur-[100px] animate-pulse-slow" />
-      <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-primary/10 rounded-full blur-[80px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-accent/5 rounded-full blur-[100px] animate-pulse-slow" />
+      <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-white/5 rounded-full blur-[80px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
@@ -42,7 +42,7 @@ export default function HeroSection() {
               Designing Spaces
               <br />
               That{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Inspire.
               </span>
               <br />
@@ -65,7 +65,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent hover:bg-accent-hover text-white font-body font-semibold text-lg rounded-xl transition-all duration-300 shadow-2xl shadow-accent/30 hover:shadow-accent/50 hover:-translate-y-0.5 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent hover:bg-accent-hover text-[#000000] font-body font-bold text-sm uppercase tracking-[0.1em] rounded-full transition-all duration-300 shadow-elevated hover:scale-105 cursor-pointer"
               >
                 Get Free Consultation
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,7 +74,7 @@ export default function HeroSection() {
               </a>
               <a
                 href="#portfolio"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-body font-semibold text-lg rounded-xl border border-white/20 hover:border-white/30 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent hover:bg-white/10 backdrop-blur-md text-white font-body font-bold text-sm uppercase tracking-[0.1em] rounded-full border border-white/30 transition-all duration-300 cursor-pointer"
               >
                 Explore Portfolio
               </a>

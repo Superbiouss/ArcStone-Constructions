@@ -34,7 +34,7 @@ export default function AboutSection() {
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Building Better Spaces with{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Precision & Innovation
               </span>
             </h2>
@@ -49,7 +49,7 @@ export default function AboutSection() {
           {/* Image */}
           <ScrollReveal direction="left">
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-lg overflow-hidden shadow-elevated">
                 <Image
                   src="/images/about-office.png"
                   alt="ArcStone Constructions office with architects working on designs"
@@ -60,9 +60,9 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
               {/* Floating Card */}
-              <div className="absolute -bottom-6 -right-6 bg-card rounded-2xl p-6 shadow-xl border border-border max-w-[220px]">
+              <div className="absolute -bottom-6 -right-6 bg-card rounded-lg p-6 shadow-elevated border border-border max-w-[220px]">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-surface flex items-center justify-center">
                     <Award size={20} className="text-accent" />
                   </div>
                   <span className="font-heading font-bold text-2xl text-card-foreground">10+</span>
@@ -88,7 +88,7 @@ export default function AboutSection() {
               {/* Mission & Vision */}
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-surface flex items-center justify-center">
                     <Target size={22} className="text-accent" />
                   </div>
                   <div>
@@ -100,8 +100,8 @@ export default function AboutSection() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Eye size={22} className="text-primary" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-surface flex items-center justify-center">
+                    <Eye size={22} className="text-accent" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-lg text-foreground mb-1">Our Vision</h3>
@@ -125,9 +125,9 @@ export default function AboutSection() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {values.map((value, i) => (
             <ScrollReveal key={value.label} delay={i * 80}>
-              <div className="group text-center p-6 rounded-2xl bg-card border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-default">
-                <div className="inline-flex p-3 rounded-xl bg-muted group-hover:bg-accent/10 mb-3 transition-colors duration-300">
-                  <value.icon size={22} className="text-muted-foreground group-hover:text-accent transition-colors duration-300" />
+              <div className="group text-center p-6 rounded-lg bg-card border border-border hover:border-accent hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-default">
+                <div className="inline-flex p-3 rounded-full bg-surface group-hover:bg-accent mb-3 transition-colors duration-300">
+                  <value.icon size={22} className="text-muted-foreground group-hover:text-black transition-colors duration-300" />
                 </div>
                 <h4 className="font-heading font-semibold text-sm text-foreground mb-1">{value.label}</h4>
                 <p className="text-muted-foreground text-xs font-body">{value.desc}</p>

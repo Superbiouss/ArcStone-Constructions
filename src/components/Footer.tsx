@@ -53,7 +53,7 @@ const socials = [
 export default function Footer() {
   return (
     <>
-      <footer className="bg-[#1E293B] dark:bg-[#0B1120] text-gray-300">
+      <footer className="bg-background border-t border-border text-gray-300">
         {/* Main Footer */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -61,7 +61,7 @@ export default function Footer() {
             <div className="lg:col-span-1">
               <div className="flex items-center gap-3 mb-6">
                 <div className="relative w-10 h-10 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#EA580C] to-[#C2410C] rounded-lg rotate-3" />
+                  <div className="absolute inset-0 bg-accent rounded-lg rotate-3" />
                   <span className="relative text-white font-heading font-bold text-lg">A</span>
                 </div>
                 <div className="flex flex-col">
@@ -83,7 +83,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#EA580C] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 cursor-pointer"
+                    className="w-10 h-10 rounded-full bg-surface hover:bg-accent flex items-center justify-center text-gray-400 hover:text-[#000000] transition-all duration-200 cursor-pointer"
                   >
                     <social.icon size={18} />
                   </a>
@@ -99,9 +99,9 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-[#EA580C] text-sm font-body transition-colors duration-200 flex items-center gap-2 group cursor-pointer"
+                      className="text-gray-400 hover:text-accent text-sm font-body transition-colors duration-200 flex items-center gap-2 group cursor-pointer"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-[#EA580C] transition-colors" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-accent transition-colors" />
                       {link.label}
                     </a>
                   </li>
@@ -117,9 +117,9 @@ export default function Footer() {
                   <li key={service}>
                     <a
                       href="#services"
-                      className="text-gray-400 hover:text-[#EA580C] text-sm font-body transition-colors duration-200 flex items-center gap-2 group cursor-pointer"
+                      className="text-gray-400 hover:text-accent text-sm font-body transition-colors duration-200 flex items-center gap-2 group cursor-pointer"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-[#EA580C] transition-colors" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-accent transition-colors" />
                       {service}
                     </a>
                   </li>
@@ -132,25 +132,25 @@ export default function Footer() {
               <h3 className="font-heading font-semibold text-white text-lg mb-6">Contact Us</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <MapPin size={18} className="text-[#EA580C] mt-0.5 flex-shrink-0" />
+                  <MapPin size={18} className="text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-gray-400 text-sm font-body">
                     123 Architecture Lane, Design District, City - 560001
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone size={18} className="text-[#EA580C] flex-shrink-0" />
+                  <Phone size={18} className="text-accent flex-shrink-0" />
                   <a href="tel:+919876543210" className="text-gray-400 hover:text-white text-sm font-body transition-colors cursor-pointer">
                     +91 98765 43210
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail size={18} className="text-[#EA580C] flex-shrink-0" />
+                  <Mail size={18} className="text-accent flex-shrink-0" />
                   <a href="mailto:info@arcstone.com" className="text-gray-400 hover:text-white text-sm font-body transition-colors cursor-pointer">
                     info@arcstone.com
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Clock size={18} className="text-[#EA580C] mt-0.5 flex-shrink-0" />
+                  <Clock size={18} className="text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-gray-400 text-sm font-body">
                     Mon - Sat: 9:00 AM - 7:00 PM
                   </span>
@@ -184,7 +184,7 @@ export default function Footer() {
         href="https://wa.me/919876543210"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#1DA851] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 hover:-translate-y-1 transition-all duration-200 cursor-pointer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-accent hover:bg-accent-hover rounded-full flex items-center justify-center text-[#000000] shadow-elevated hover:scale-110 transition-all duration-200 cursor-pointer"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle size={24} />
@@ -193,7 +193,7 @@ export default function Footer() {
       {/* Back to Top */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-primary hover:bg-primary-dark rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200 opacity-60 hover:opacity-100 cursor-pointer"
+        className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-surface border border-border hover:border-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent shadow-elevated transition-all duration-200 cursor-pointer"
         aria-label="Back to top"
       >
         <ArrowUp size={20} />

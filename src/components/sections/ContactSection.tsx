@@ -110,7 +110,7 @@ export default function ContactSection() {
     return (
       <section id="contact" className="section-padding bg-background">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <div className="bg-card rounded-3xl p-12 border border-border shadow-xl">
+          <div className="bg-card rounded-lg p-12 border border-border shadow-elevated">
             <div className="w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mx-auto mb-6">
               <CheckCircle2 size={40} className="text-emerald-500" />
             </div>
@@ -122,7 +122,7 @@ export default function ContactSection() {
             </p>
             <button
               onClick={() => { setIsSubmitted(false); setFormData({ fullName: '', phone: '', email: '', projectType: '', plotSize: '', location: '', budget: '', consultationDate: '', message: '' }); }}
-              className="px-6 py-3 bg-accent hover:bg-accent-hover text-white font-body font-semibold rounded-xl transition-colors cursor-pointer"
+              className="px-6 py-3 bg-accent hover:bg-accent-hover text-[#000000] font-body font-bold text-sm uppercase tracking-widest rounded-full transition-colors cursor-pointer"
             >
               Send Another Inquiry
             </button>
@@ -143,7 +143,7 @@ export default function ContactSection() {
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Let&apos;s Start Your{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-orange-400">
+              <span className="text-accent">
                 Project
               </span>
             </h2>
@@ -156,7 +156,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Form */}
           <ScrollReveal direction="left" className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="bg-card rounded-3xl p-8 md:p-10 border border-border shadow-xl">
+            <form onSubmit={handleSubmit} className="bg-card rounded-lg p-8 md:p-10 border border-border shadow-elevated">
               <div className="grid md:grid-cols-2 gap-5">
                 {/* Full Name */}
                 <div>
@@ -169,7 +169,7 @@ export default function ContactSection() {
                     value={formData.fullName}
                     onChange={(e) => handleChange('fullName', e.target.value)}
                     placeholder="John Doe"
-                    className={`w-full px-4 py-3 rounded-xl bg-muted border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all ${
+                    className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all ${
                       errors.fullName ? 'border-destructive' : 'border-border'
                     }`}
                   />
@@ -187,7 +187,7 @@ export default function ContactSection() {
                     value={formData.phone}
                     onChange={(e) => handleChange('phone', e.target.value)}
                     placeholder="+91 98765 43210"
-                    className={`w-full px-4 py-3 rounded-xl bg-muted border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all ${
+                    className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all ${
                       errors.phone ? 'border-destructive' : 'border-border'
                     }`}
                   />
@@ -205,7 +205,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={(e) => handleChange('email', e.target.value)}
                     placeholder="john@example.com"
-                    className={`w-full px-4 py-3 rounded-xl bg-muted border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all ${
+                    className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all ${
                       errors.email ? 'border-destructive' : 'border-border'
                     }`}
                   />
@@ -221,7 +221,7 @@ export default function ContactSection() {
                   <select
                     value={formData.projectType}
                     onChange={(e) => handleChange('projectType', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-xl bg-muted border font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all cursor-pointer ${
+                    className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent transition-all cursor-pointer ${
                       errors.projectType ? 'border-destructive' : 'border-border'
                     } ${!formData.projectType ? 'text-muted-foreground/50' : ''}`}
                   >
@@ -244,7 +244,7 @@ export default function ContactSection() {
                     value={formData.plotSize}
                     onChange={(e) => handleChange('plotSize', e.target.value)}
                     placeholder="e.g. 2400 sq.ft"
-                    className="w-full px-4 py-3 rounded-xl bg-muted border border-border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                    className="w-full px-4 py-3 rounded-md bg-surface border border-border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all"
                   />
                 </div>
 
@@ -259,7 +259,7 @@ export default function ContactSection() {
                     value={formData.location}
                     onChange={(e) => handleChange('location', e.target.value)}
                     placeholder="City, State"
-                    className="w-full px-4 py-3 rounded-xl bg-muted border border-border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                    className="w-full px-4 py-3 rounded-md bg-surface border border-border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all"
                   />
                 </div>
 
@@ -274,7 +274,7 @@ export default function ContactSection() {
                     value={formData.budget}
                     onChange={(e) => handleChange('budget', e.target.value)}
                     placeholder="e.g. ₹50 Lakhs"
-                    className="w-full px-4 py-3 rounded-xl bg-muted border border-border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                    className="w-full px-4 py-3 rounded-md bg-surface border border-border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all"
                   />
                 </div>
 
@@ -288,7 +288,7 @@ export default function ContactSection() {
                     type="date"
                     value={formData.consultationDate}
                     onChange={(e) => handleChange('consultationDate', e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-muted border border-border font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all cursor-pointer"
+                    className="w-full px-4 py-3 rounded-md bg-surface border border-border font-body text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent transition-all cursor-pointer"
                   />
                 </div>
               </div>
@@ -304,7 +304,7 @@ export default function ContactSection() {
                   onChange={(e) => handleChange('message', e.target.value)}
                   placeholder="Tell us about your project requirements..."
                   rows={4}
-                  className={`w-full px-4 py-3 rounded-xl bg-muted border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all resize-none ${
+                  className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all resize-none ${
                     errors.message ? 'border-destructive' : 'border-border'
                   }`}
                 />
@@ -315,7 +315,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent hover:bg-accent-hover disabled:bg-accent/50 text-white font-body font-semibold text-lg rounded-xl transition-all duration-300 shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 cursor-pointer disabled:cursor-not-allowed"
+                className="mt-6 w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent hover:bg-accent-hover disabled:bg-surface disabled:text-muted-foreground text-[#000000] font-body font-bold text-sm uppercase tracking-widest rounded-full transition-all duration-300 shadow-elevated hover:scale-[1.02] cursor-pointer disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
@@ -337,8 +337,8 @@ export default function ContactSection() {
             <div className="space-y-6">
               {/* Contact Cards */}
               {contactInfo.map((info) => (
-                <div key={info.label} className="flex items-start gap-4 p-5 bg-card rounded-2xl border border-border">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                <div key={info.label} className="flex items-start gap-4 p-5 bg-card rounded-lg border border-border shadow-elevated">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-surface flex items-center justify-center">
                     <info.icon size={20} className="text-accent" />
                   </div>
                   <div>

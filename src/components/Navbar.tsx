@@ -5,8 +5,6 @@ import { useTheme } from 'next-themes';
 import {
   Menu,
   X,
-  Sun,
-  Moon,
   Phone,
   ChevronDown,
 } from 'lucide-react';
@@ -27,10 +25,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,7 +83,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-xl shadow-lg shadow-black/[0.03] dark:shadow-black/20'
+            ? 'bg-[#121212]/95 backdrop-blur-xl border-b border-border'
             : 'bg-transparent'
         }`}
       >
@@ -102,7 +96,7 @@ export default function Navbar() {
               className="flex items-center gap-3 group cursor-pointer"
             >
               <div className="relative w-10 h-10 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent to-accent-hover rounded-lg rotate-3 group-hover:rotate-6 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-accent rounded-full rotate-3 group-hover:rotate-6 transition-transform duration-300" />
                 <span className="relative text-white font-heading font-bold text-lg">A</span>
               </div>
               <div className="flex flex-col">
@@ -122,10 +116,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`relative px-3 py-2 text-sm font-body font-medium transition-colors duration-200 rounded-lg cursor-pointer
+                  className={`relative px-4 py-2 text-sm font-body font-bold transition-colors duration-200 rounded-full cursor-pointer
                     ${activeSection === link.href.replace('#', '')
-                      ? 'text-accent'
-                      : 'text-foreground/70 hover:text-foreground hover:bg-muted/50'
+                      ? 'text-white'
+                      : 'text-muted-foreground hover:text-white hover:bg-muted'
                     }`}
                 >
                   {link.label}
@@ -138,22 +132,13 @@ export default function Navbar() {
 
             {/* Right Side */}
             <div className="flex items-center gap-3">
-              {/* Theme Toggle */}
-              {mounted && (
-                <button
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="p-2.5 rounded-xl bg-muted/50 hover:bg-muted text-foreground/70 hover:text-foreground transition-all duration-200 cursor-pointer"
-                  aria-label="Toggle theme"
-                >
-                  {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-                </button>
-              )}
+
 
               {/* CTA Button */}
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-                className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-accent hover:bg-accent-hover text-white text-sm font-body font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 cursor-pointer"
+                className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-accent hover:bg-accent-hover text-[#000000] text-xs font-body font-bold uppercase tracking-[0.1em] rounded-full transition-all duration-200 hover:scale-105 cursor-pointer"
               >
                 <Phone size={15} />
                 Get Consultation
@@ -162,7 +147,7 @@ export default function Navbar() {
               {/* Mobile Toggle */}
               <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="lg:hidden p-2.5 rounded-xl bg-muted/50 hover:bg-muted text-foreground transition-colors cursor-pointer"
+                className="lg:hidden p-2.5 rounded-full bg-muted hover:bg-surface text-foreground transition-colors cursor-pointer"
                 aria-label="Toggle menu"
               >
                 {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -196,10 +181,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-body font-medium transition-all duration-200 cursor-pointer
+                  className={`flex items-center justify-between px-4 py-3 rounded-full text-base font-body font-bold transition-all duration-200 cursor-pointer
                     ${activeSection === link.href.replace('#', '')
-                      ? 'bg-accent/10 text-accent'
-                      : 'text-foreground/70 hover:text-foreground hover:bg-muted/50'
+                      ? 'bg-muted text-white'
+                      : 'text-muted-foreground hover:text-white hover:bg-muted'
                     }`}
                   style={{ animationDelay: `${i * 50}ms` }}
                 >
@@ -212,7 +197,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-                className="flex items-center justify-center gap-2 w-full py-3.5 bg-accent hover:bg-accent-hover text-white font-body font-semibold rounded-xl transition-colors cursor-pointer"
+                className="flex items-center justify-center gap-2 w-full py-3.5 bg-accent hover:bg-accent-hover text-[#000000] font-body font-bold uppercase tracking-[0.1em] text-sm rounded-full transition-colors cursor-pointer"
               >
                 <Phone size={18} />
                 Get Free Consultation
