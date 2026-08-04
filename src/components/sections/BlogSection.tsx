@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { Clock, ArrowRight } from 'lucide-react';
 
@@ -57,7 +58,10 @@ export default function BlogSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post, i) => (
             <ScrollReveal key={post.title} delay={i * 100}>
-              <article className="group h-full bg-card rounded-lg border border-border hover:border-accent hover:shadow-elevated overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+              <Link 
+                href={`/blog/${post.title.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')}`}
+                className="block group h-full bg-card rounded-lg border border-border hover:border-accent hover:shadow-elevated overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              >
                 {/* Thumbnail Image */}
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -96,7 +100,7 @@ export default function BlogSection() {
                     Read More <ArrowRight size={14} />
                   </div>
                 </div>
-              </article>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

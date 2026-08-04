@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import {
   Building2,
@@ -97,33 +98,31 @@ export default function ServicesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 80}>
-              <div className="group relative h-full bg-card rounded-lg p-7 border border-border hover:border-accent transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated cursor-default overflow-hidden">
-                {/* Background Hover */}
-                <div className={`absolute inset-0 bg-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+              <Link 
+                href={`/services/${service.title.toLowerCase().replace(/ /g, '-')}`}
+                className="block group relative h-full bg-card rounded-lg p-7 border border-border hover:border-accent transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated cursor-pointer overflow-hidden"
+              >
+                {/* Background Pattern */}
+                <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-300 translate-x-4 -translate-y-4">
+                  <service.icon size={120} strokeWidth={1} />
+                </div>
 
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className={`inline-flex p-3.5 rounded-full bg-surface mb-5 group-hover:bg-accent transition-colors duration-300`}>
-                    <service.icon size={24} className="text-white group-hover:text-black transition-colors duration-300" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon size={28} className="text-accent" />
                   </div>
-
-                  {/* Title */}
-                  <h3 className="font-heading font-bold text-lg text-foreground mb-3">
+                  
+                  <h3 className="font-heading font-bold text-xl text-card-foreground mb-3 group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground font-body text-sm leading-relaxed mb-5">
+                  
+                  <p className="text-muted-foreground font-body leading-relaxed mb-6 flex-grow">
                     {service.description}
                   </p>
 
-                  {/* Deliverables */}
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {service.deliverables.slice(0, 4).map((item) => (
-                      <span
-                        key={item}
-                        className="px-2.5 py-1 rounded-full bg-surface border border-border text-muted-foreground text-xs font-body"
-                      >
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {service.deliverables.slice(0, 4).map((item, idx) => (
+                      <span key={idx} className="px-2.5 py-1 rounded-full bg-surface border border-border text-muted-foreground text-xs font-body">
                         {item}
                       </span>
                     ))}
@@ -139,7 +138,7 @@ export default function ServicesSection() {
                     Learn More <ArrowRight size={14} />
                   </div>
                 </div>
-              </div>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

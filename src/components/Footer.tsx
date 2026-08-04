@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   MapPin,
   Phone,
@@ -45,10 +46,10 @@ const services = [
 ];
 
 const socials = [
-  { icon: InstagramIcon, href: '#', label: 'Instagram' },
-  { icon: FacebookIcon, href: '#', label: 'Facebook' },
-  { icon: LinkedinIcon, href: '#', label: 'LinkedIn' },
-  { icon: YoutubeIcon, href: '#', label: 'YouTube' },
+  { icon: InstagramIcon, href: 'https://instagram.com/arcstone', label: 'Instagram' },
+  { icon: FacebookIcon, href: 'https://facebook.com/arcstone', label: 'Facebook' },
+  { icon: LinkedinIcon, href: 'https://linkedin.com/company/arcstone', label: 'LinkedIn' },
+  { icon: YoutubeIcon, href: 'https://youtube.com/arcstone', label: 'YouTube' },
 ];
 
 export default function Footer() {
@@ -178,12 +179,12 @@ export default function Footer() {
               © 2026 ArcStone Constructions. All Rights Reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-gray-500 hover:text-gray-300 text-sm font-body transition-colors cursor-pointer">
+              <Link href="/privacy-policy" className="text-gray-500 hover:text-gray-300 text-sm font-body transition-colors cursor-pointer">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-500 hover:text-gray-300 text-sm font-body transition-colors cursor-pointer">
+              </Link>
+              <Link href="/terms-of-service" className="text-gray-500 hover:text-gray-300 text-sm font-body transition-colors cursor-pointer">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
