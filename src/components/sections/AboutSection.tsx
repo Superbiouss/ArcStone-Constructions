@@ -60,7 +60,7 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
               {/* Floating Card */}
-              <div className="absolute -bottom-6 -right-6 bg-card rounded-lg p-6 shadow-elevated border border-border max-w-[220px]">
+              <div className="mt-4 md:mt-0 md:absolute md:-bottom-6 md:-right-6 bg-card rounded-lg p-6 shadow-elevated border border-border max-w-[220px]">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-full bg-surface flex items-center justify-center">
                     <Award size={20} className="text-accent" />

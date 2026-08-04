@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
+
 import {
   Menu,
   X,
@@ -187,6 +187,7 @@ export default function Navbar() {
                       : 'text-muted-foreground hover:text-white hover:bg-muted'
                     }`}
                   style={{ animationDelay: `${i * 50}ms` }}
+                  data-animate
                 >
                   {link.label}
                   <ChevronDown size={16} className="-rotate-90 opacity-40" />

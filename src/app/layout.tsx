@@ -54,6 +54,12 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-foreground antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-accent focus:text-black focus:rounded-full focus:font-body focus:font-bold focus:text-sm focus:uppercase focus:tracking-widest focus:shadow-elevated"
+        >
+          Skip to content
+        </a>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

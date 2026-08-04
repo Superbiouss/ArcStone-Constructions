@@ -68,7 +68,7 @@ export default function ProcessSection() {
         <div className="hidden lg:block relative">
           {/* Connecting Line */}
           <div className="absolute top-[60px] left-[10%] right-[10%] h-0.5 bg-border">
-            <div className="absolute inset-0 bg-accent origin-left" />
+            <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent/50 to-border origin-left" />
           </div>
 
           <div className="grid grid-cols-5 gap-4">

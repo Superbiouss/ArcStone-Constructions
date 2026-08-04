@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { ScrollReveal } from '@/components/ScrollReveal';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export default function HeroSection() {
   return (
@@ -16,10 +16,11 @@ export default function HeroSection() {
           className="object-cover"
           priority
           quality={90}
+          sizes="100vw"
         />
+        {/* Transparent blur overlay — no color tint, just frosted glass for readability */}
+        <div className="absolute inset-0 backdrop-blur-[2px] bg-black/40" />
       </div>
-
-
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
@@ -89,11 +90,6 @@ export default function HeroSection() {
             </div>
           </ScrollReveal>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
-        <ArrowDown size={20} className="text-white/40" />
       </div>
     </section>
   );

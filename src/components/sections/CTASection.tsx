@@ -14,12 +14,11 @@ export default function CTASection() {
           alt="Construction site at sunset"
           fill
           className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-[#121212]/90" />
       </div>
 
-      {/* Decorative */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <ScrollReveal>

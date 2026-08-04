@@ -45,14 +45,26 @@ const testimonials = [
 export default function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goTo = useCallback((index: number) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    // Wait for fade-out, then change slide
+    setTimeout(() => {
+      setCurrent(index);
+      // Allow fade-in to complete before enabling next transition
+      setTimeout(() => setIsTransitioning(false), 300);
+    }, 200);
+  }, [isTransitioning]);
 
   const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % testimonials.length);
-  }, []);
+    goTo((current + 1) % testimonials.length);
+  }, [current, goTo]);
 
   const prev = useCallback(() => {
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  }, []);
+    goTo((current - 1 + testimonials.length) % testimonials.length);
+  }, [current, goTo]);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -89,31 +101,37 @@ export default function TestimonialsSection() {
               {/* Decorative Quote */}
               <Quote size={80} className="absolute top-6 right-6 text-accent/10" />
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-6">
-                {Array.from({ length: testimonials[current].rating }).map((_, i) => (
-                  <Star key={i} size={20} className="text-amber-400 fill-amber-400" />
-                ))}
-              </div>
+              {/* Slide content with fade transition */}
+              <div
+                className="transition-opacity duration-300 ease-in-out"
+                style={{ opacity: isTransitioning ? 0 : 1 }}
+              >
+                {/* Stars */}
+                <div className="flex gap-1 mb-6">
+                  {Array.from({ length: testimonials[current].rating }).map((_, i) => (
+                    <Star key={i} size={20} className="text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
 
-              {/* Quote */}
-              <blockquote className="text-foreground font-body text-lg md:text-xl leading-relaxed mb-8 relative z-10 min-h-[100px]">
-                &ldquo;{testimonials[current].quote}&rdquo;
-              </blockquote>
+                {/* Quote */}
+                <blockquote className="text-foreground font-body text-lg md:text-xl leading-relaxed mb-8 relative z-10 min-h-[100px]">
+                  &ldquo;{testimonials[current].quote}&rdquo;
+                </blockquote>
 
-              {/* Author */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-surface border border-border flex items-center justify-center text-accent font-heading font-bold text-xl">
-                    {testimonials[current].name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-foreground text-lg">
-                      {testimonials[current].name}
-                    </h4>
-                    <p className="text-muted-foreground font-body text-sm">
-                      {testimonials[current].role} • {testimonials[current].project}
-                    </p>
+                {/* Author */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center text-accent font-heading font-bold text-xl">
+                      {testimonials[current].name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="font-heading font-bold text-foreground text-lg">
+                        {testimonials[current].name}
+                      </h4>
+                      <p className="text-muted-foreground font-body text-sm">
+                        {testimonials[current].role} • {testimonials[current].project}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -134,7 +152,7 @@ export default function TestimonialsSection() {
                 {testimonials.map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => setCurrent(i)}
+                    onClick={() => goTo(i)}
                     className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                       i === current
                         ? 'bg-accent w-8'

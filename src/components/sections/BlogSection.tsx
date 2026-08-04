@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { Clock, ArrowRight } from 'lucide-react';
 
@@ -10,7 +11,7 @@ const posts = [
     category: 'Design Trends',
     readTime: '5 min read',
     date: 'Jul 15, 2026',
-    gradient: 'from-blue-500/20 to-cyan-500/20',
+    image: '/images/blog-design-trends.png',
   },
   {
     title: 'Building Planning Checklist: What You Need to Know',
@@ -18,7 +19,7 @@ const posts = [
     category: 'Planning',
     readTime: '7 min read',
     date: 'Jul 8, 2026',
-    gradient: 'from-accent/20 to-orange-400/20',
+    image: '/images/blog-planning-checklist.png',
   },
   {
     title: 'Cost-Saving Tips for Your Construction Project',
@@ -26,7 +27,7 @@ const posts = [
     category: 'Budget',
     readTime: '4 min read',
     date: 'Jul 1, 2026',
-    gradient: 'from-emerald-500/20 to-teal-500/20',
+    image: '/images/blog-cost-saving.png',
   },
 ];
 
@@ -57,15 +58,15 @@ export default function BlogSection() {
           {posts.map((post, i) => (
             <ScrollReveal key={post.title} delay={i * 100}>
               <article className="group h-full bg-card rounded-lg border border-border hover:border-accent hover:shadow-elevated overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                {/* Thumbnail Placeholder */}
-                <div className={`relative h-48 bg-surface overflow-hidden`}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-3">
-                        <span className="font-heading text-2xl font-bold text-foreground/60">{post.category.charAt(0)}</span>
-                      </div>
-                    </div>
-                  </div>
+                {/* Thumbnail Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                   {/* Category Badge */}
                   <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm text-xs font-body font-bold uppercase tracking-wider text-white">
                     {post.category}

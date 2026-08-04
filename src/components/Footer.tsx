@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import {
   MapPin,
   Phone,
@@ -51,6 +52,16 @@ const socials = [
 ];
 
 export default function Footer() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <footer className="bg-background border-t border-border text-gray-300">
@@ -190,10 +201,12 @@ export default function Footer() {
         <MessageCircle size={24} />
       </a>
 
-      {/* Back to Top */}
+      {/* Back to Top — only visible after scrolling */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-surface border border-border hover:border-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent shadow-elevated transition-all duration-200 cursor-pointer"
+        className={`fixed bottom-6 left-6 z-50 w-12 h-12 bg-surface border border-border hover:border-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent shadow-elevated transition-all duration-300 cursor-pointer ${
+          showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
         aria-label="Back to top"
       >
         <ArrowUp size={20} />

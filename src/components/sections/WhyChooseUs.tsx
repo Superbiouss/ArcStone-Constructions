@@ -66,7 +66,7 @@ export default function WhyChooseUs() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reasons.map((reason, i) => (
             <ScrollReveal key={reason.title} delay={i * 100}>
-              <div className="group flex gap-5 p-6 rounded-lg hover:bg-card hover:shadow-elevated hover:border hover:border-border transition-all duration-300 cursor-default">
+              <div className="group flex gap-5 p-6 rounded-lg border border-transparent hover:bg-card hover:shadow-elevated hover:border-border transition-all duration-300 cursor-default">
                 <div className="flex-shrink-0 w-14 h-14 rounded-full bg-surface group-hover:bg-accent flex items-center justify-center transition-colors duration-300">
                   <reason.icon size={24} className="text-accent group-hover:text-black transition-colors duration-300" />
                 </div>

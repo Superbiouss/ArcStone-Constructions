@@ -103,7 +103,7 @@ export default function PortfolioSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project, i) => (
             <ScrollReveal key={project.title + activeFilter} delay={i * 100}>
-              <div className="group relative rounded-lg overflow-hidden bg-card border border-border hover:border-accent shadow-sm hover:shadow-elevated transition-all duration-500 cursor-pointer">
+              <div role="group" tabIndex={0} aria-label={`${project.title} - ${project.category} project in ${project.location}`} className="group relative rounded-lg overflow-hidden bg-card border border-border hover:border-accent shadow-sm hover:shadow-elevated transition-all duration-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background">
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
                   <Image
@@ -111,6 +111,7 @@ export default function PortfolioSection() {
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

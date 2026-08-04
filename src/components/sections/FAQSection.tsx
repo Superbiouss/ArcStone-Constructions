@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 
@@ -27,6 +27,73 @@ const faqs = [
   },
 ];
 
+function AccordionItem({ faq, index, isOpen, onToggle }: {
+  faq: { question: string; answer: string };
+  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    }
+  }, [isOpen]);
+
+  return (
+    <ScrollReveal delay={index * 80}>
+      <div
+        className={`rounded-lg border transition-all duration-300 overflow-hidden ${
+          isOpen
+            ? 'border-accent/30 bg-card shadow-elevated'
+            : 'border-border bg-card hover:border-accent/20'
+        }`}
+      >
+        <button
+          onClick={onToggle}
+          className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+          aria-expanded={isOpen}
+          aria-controls={`faq-answer-${index}`}
+        >
+          <div className="flex items-center gap-4 pr-4">
+            <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
+              isOpen ? 'bg-accent text-[#000000]' : 'bg-surface text-muted-foreground'
+            }`}>
+              <HelpCircle size={18} />
+            </div>
+            <h3 className="font-heading font-semibold text-foreground text-base md:text-lg">
+              {faq.question}
+            </h3>
+          </div>
+          <ChevronDown
+            size={20}
+            className={`flex-shrink-0 text-muted-foreground transition-transform duration-300 ${
+              isOpen ? 'rotate-180 text-accent' : ''
+            }`}
+          />
+        </button>
+        <div
+          id={`faq-answer-${index}`}
+          role="region"
+          style={{
+            maxHeight: isOpen ? `${height}px` : '0px',
+            opacity: isOpen ? 1 : 0,
+          }}
+          className="transition-all duration-300 ease-in-out overflow-hidden"
+        >
+          <div ref={contentRef} className="px-6 pb-6 pl-20">
+            <p className="text-muted-foreground font-body text-sm leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        </div>
+      </div>
+    </ScrollReveal>
+  );
+}
+
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -51,49 +118,13 @@ export default function FAQSection() {
         {/* Accordion */}
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <ScrollReveal key={i} delay={i * 80}>
-              <div
-                className={`rounded-lg border transition-all duration-300 overflow-hidden ${
-                  openIndex === i
-                    ? 'border-accent/30 bg-card shadow-elevated'
-                    : 'border-border bg-card hover:border-accent/20'
-                }`}
-              >
-                <button
-                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
-                  aria-expanded={openIndex === i}
-                >
-                  <div className="flex items-center gap-4 pr-4">
-                    <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
-                      openIndex === i ? 'bg-accent text-[#000000]' : 'bg-surface text-muted-foreground'
-                    }`}>
-                      <HelpCircle size={18} />
-                    </div>
-                    <h3 className="font-heading font-semibold text-foreground text-base md:text-lg">
-                      {faq.question}
-                    </h3>
-                  </div>
-                  <ChevronDown
-                    size={20}
-                    className={`flex-shrink-0 text-muted-foreground transition-transform duration-300 ${
-                      openIndex === i ? 'rotate-180 text-accent' : ''
-                    }`}
-                  />
-                </button>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <div className="px-6 pb-6 pl-20">
-                    <p className="text-muted-foreground font-body text-sm leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
+            <AccordionItem
+              key={i}
+              faq={faq}
+              index={i}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
           ))}
         </div>
       </div>

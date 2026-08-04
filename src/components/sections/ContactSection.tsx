@@ -12,7 +12,7 @@ import {
   User,
   Building2,
   Ruler,
-  DollarSign,
+  IndianRupee,
   Calendar,
   MessageSquare,
 } from 'lucide-react';
@@ -156,72 +156,84 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Form */}
           <ScrollReveal direction="left" className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="bg-card rounded-lg p-8 md:p-10 border border-border shadow-elevated">
+            <form onSubmit={handleSubmit} className="bg-card rounded-lg p-8 md:p-10 border border-border shadow-elevated" noValidate>
               <div className="grid md:grid-cols-2 gap-5">
                 {/* Full Name */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                  <label htmlFor="contact-fullName" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
                     <User size={14} className="text-muted-foreground" />
                     Full Name <span className="text-destructive">*</span>
                   </label>
                   <input
+                    id="contact-fullName"
                     type="text"
                     value={formData.fullName}
                     onChange={(e) => handleChange('fullName', e.target.value)}
                     placeholder="John Doe"
+                    aria-invalid={!!errors.fullName}
+                    aria-describedby={errors.fullName ? 'error-fullName' : undefined}
                     className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all ${
                       errors.fullName ? 'border-destructive' : 'border-border'
                     }`}
                   />
-                  {errors.fullName && <p className="text-destructive text-xs mt-1 font-body">{errors.fullName}</p>}
+                  {errors.fullName && <p id="error-fullName" role="alert" className="text-destructive text-xs mt-1 font-body">{errors.fullName}</p>}
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                  <label htmlFor="contact-phone" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
                     <Phone size={14} className="text-muted-foreground" />
                     Phone Number <span className="text-destructive">*</span>
                   </label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleChange('phone', e.target.value)}
                     placeholder="+91 98765 43210"
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? 'error-phone' : undefined}
                     className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all ${
                       errors.phone ? 'border-destructive' : 'border-border'
                     }`}
                   />
-                  {errors.phone && <p className="text-destructive text-xs mt-1 font-body">{errors.phone}</p>}
+                  {errors.phone && <p id="error-phone" role="alert" className="text-destructive text-xs mt-1 font-body">{errors.phone}</p>}
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                  <label htmlFor="contact-email" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
                     <Mail size={14} className="text-muted-foreground" />
                     Email <span className="text-destructive">*</span>
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleChange('email', e.target.value)}
                     placeholder="john@example.com"
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? 'error-email' : undefined}
                     className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all ${
                       errors.email ? 'border-destructive' : 'border-border'
                     }`}
                   />
-                  {errors.email && <p className="text-destructive text-xs mt-1 font-body">{errors.email}</p>}
+                  {errors.email && <p id="error-email" role="alert" className="text-destructive text-xs mt-1 font-body">{errors.email}</p>}
                 </div>
 
                 {/* Project Type */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                  <label htmlFor="contact-projectType" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
                     <Building2 size={14} className="text-muted-foreground" />
                     Project Type <span className="text-destructive">*</span>
                   </label>
                   <select
+                    id="contact-projectType"
                     value={formData.projectType}
                     onChange={(e) => handleChange('projectType', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent transition-all cursor-pointer ${
+                    aria-invalid={!!errors.projectType}
+                    aria-describedby={errors.projectType ? 'error-projectType' : undefined}
+                    className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-accent transition-all cursor-pointer appearance-none ${
                       errors.projectType ? 'border-destructive' : 'border-border'
                     } ${!formData.projectType ? 'text-muted-foreground/50' : ''}`}
                   >
@@ -230,16 +242,17 @@ export default function ContactSection() {
                       <option key={type} value={type}>{type}</option>
                     ))}
                   </select>
-                  {errors.projectType && <p className="text-destructive text-xs mt-1 font-body">{errors.projectType}</p>}
+                  {errors.projectType && <p id="error-projectType" role="alert" className="text-destructive text-xs mt-1 font-body">{errors.projectType}</p>}
                 </div>
 
                 {/* Plot Size */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                  <label htmlFor="contact-plotSize" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
                     <Ruler size={14} className="text-muted-foreground" />
                     Plot Size
                   </label>
                   <input
+                    id="contact-plotSize"
                     type="text"
                     value={formData.plotSize}
                     onChange={(e) => handleChange('plotSize', e.target.value)}
@@ -250,11 +263,12 @@ export default function ContactSection() {
 
                 {/* Location */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                  <label htmlFor="contact-location" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
                     <MapPin size={14} className="text-muted-foreground" />
                     Project Location
                   </label>
                   <input
+                    id="contact-location"
                     type="text"
                     value={formData.location}
                     onChange={(e) => handleChange('location', e.target.value)}
@@ -265,11 +279,12 @@ export default function ContactSection() {
 
                 {/* Budget */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
-                    <DollarSign size={14} className="text-muted-foreground" />
+                  <label htmlFor="contact-budget" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                    <IndianRupee size={14} className="text-muted-foreground" />
                     Estimated Budget
                   </label>
                   <input
+                    id="contact-budget"
                     type="text"
                     value={formData.budget}
                     onChange={(e) => handleChange('budget', e.target.value)}
@@ -280,11 +295,12 @@ export default function ContactSection() {
 
                 {/* Consultation Date */}
                 <div>
-                  <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                  <label htmlFor="contact-consultationDate" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
                     <Calendar size={14} className="text-muted-foreground" />
                     Preferred Consultation Date
                   </label>
                   <input
+                    id="contact-consultationDate"
                     type="date"
                     value={formData.consultationDate}
                     onChange={(e) => handleChange('consultationDate', e.target.value)}
@@ -295,20 +311,23 @@ export default function ContactSection() {
 
               {/* Message */}
               <div className="mt-5">
-                <label className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
+                <label htmlFor="contact-message" className="flex items-center gap-2 text-sm font-body font-medium text-foreground mb-2">
                   <MessageSquare size={14} className="text-muted-foreground" />
                   Message <span className="text-destructive">*</span>
                 </label>
                 <textarea
+                  id="contact-message"
                   value={formData.message}
                   onChange={(e) => handleChange('message', e.target.value)}
                   placeholder="Tell us about your project requirements..."
                   rows={4}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? 'error-message' : undefined}
                   className={`w-full px-4 py-3 rounded-md bg-surface border font-body text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-all resize-none ${
                     errors.message ? 'border-destructive' : 'border-border'
                   }`}
                 />
-                {errors.message && <p className="text-destructive text-xs mt-1 font-body">{errors.message}</p>}
+                {errors.message && <p id="error-message" role="alert" className="text-destructive text-xs mt-1 font-body">{errors.message}</p>}
               </div>
 
               {/* Submit */}
