@@ -17,13 +17,9 @@ export default function HeroSection() {
           priority
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#0F172A]/70 to-[#0F172A]/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/60 via-transparent to-transparent" />
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-accent/5 rounded-full blur-[100px] animate-pulse-slow" />
-      <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-white/5 rounded-full blur-[80px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
+
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
@@ -97,7 +93,6 @@ export default function HeroSection() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-white/40 text-xs font-body uppercase tracking-widest">Scroll</span>
         <ArrowDown size={20} className="text-white/40" />
       </div>
     </section>
