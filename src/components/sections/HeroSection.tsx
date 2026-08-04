@@ -10,7 +10,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-banner.png"
+          src="/images/c-dustin-91AQt9p4Mo8-unsplash.jpg"
           alt="Modern luxury architectural design by ArcStone Constructions"
           fill
           className="object-cover"
