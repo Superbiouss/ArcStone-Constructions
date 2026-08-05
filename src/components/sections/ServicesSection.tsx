@@ -74,7 +74,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-muted/30 dark:bg-[#0B1120]">
+    <section id="services" className="section-padding bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>

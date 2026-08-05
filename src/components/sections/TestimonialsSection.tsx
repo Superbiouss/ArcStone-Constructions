@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
   }, [isAutoPlaying, next]);
 
   return (
-    <section id="testimonials" className="section-padding bg-muted/30 dark:bg-[#0B1120]">
+    <section id="testimonials" className="section-padding bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>
@@ -114,7 +114,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-foreground font-body text-lg md:text-xl leading-relaxed mb-8 relative z-10 min-h-[100px]">
+                <blockquote className="text-foreground font-body text-lg md:text-xl leading-relaxed mb-8 relative z-10 min-h-[160px]">
                   &ldquo;{testimonials[current].quote}&rdquo;
                 </blockquote>
 
@@ -159,6 +159,7 @@ export default function TestimonialsSection() {
                         : 'bg-border hover:bg-muted-foreground w-2.5'
                     }`}
                     aria-label={`Go to testimonial ${i + 1}`}
+                    aria-current={i === current ? 'true' : 'false'}
                   />
                 ))}
               </div>

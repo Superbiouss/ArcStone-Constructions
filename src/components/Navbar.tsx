@@ -138,7 +138,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-                className="hidden sm:flex items-center gap-2 px-5 py-2 lg:px-6 lg:py-2.5 bg-accent hover:bg-accent-hover text-[#000000] text-[10px] lg:text-xs font-body font-bold uppercase tracking-[0.1em] rounded-full transition-all duration-200 hover:scale-105 cursor-pointer"
+                className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-accent hover:bg-accent-hover text-[#000000] text-xs font-body font-bold uppercase tracking-[0.1em] rounded-full transition-all duration-200 hover:scale-105 cursor-pointer"
               >
                 <Phone size={15} />
                 Get Consultation

@@ -7,41 +7,40 @@
   --font-heading: 'Manrope', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* Spotify-Inspired Palette */
-  --color-primary: #181818;
-  --color-primary-dark: #121212;
-  --color-primary-darker: #000000;
-  --color-on-primary: #ffffff;
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-darker: var(--primary-darker);
+  --color-on-primary: var(--on-primary);
   
-  --color-secondary: #272727;
+  --color-secondary: var(--secondary);
   
-  --color-accent: #fb8500;
-  --color-accent-hover: #e57800;
-  --color-accent-light: #ff9b2e;
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
   
-  --color-background: #121212;
-  --color-foreground: #ffffff;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
   
-  --color-muted: #1f1f1f;
-  --color-muted-foreground: #b3b3b3;
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   
-  --color-border: #4d4d4d;
+  --color-border: var(--border);
   
-  --color-card: #181818;
-  --color-card-foreground: #ffffff;
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
   
-  --color-destructive: #f3727f;
+  --color-destructive: var(--destructive);
   
-  --color-ring: #1ed760;
-  --color-surface: #1f1f1f;
-  --color-surface-elevated: #252525;
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
   
-  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-overlay: var(--overlay);
 
   /* Shadows */
-  --shadow-elevated: 0px 8px 8px rgba(0, 0, 0, 0.3);
-  --shadow-dialog: 0px 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-inset: 0px 1px 0px rgb(18, 18, 18), 0px 0px 0px 1px inset rgb(124, 124, 124);
+  --shadow-elevated: var(--shadow-elevated-val);
+  --shadow-dialog: var(--shadow-dialog-val);
+  --shadow-inset: var(--shadow-inset-val);
 
   --animate-fade-in: fade-in 0.6s ease-out;
   --animate-fade-in-up: fade-in-up 0.6s ease-out;
@@ -55,6 +54,80 @@
   --animate-count-up: count-up 2s ease-out;
   --animate-slide-up: slide-up 0.3s ease-out;
   --animate-bounce-in: bounce-in 0.5s ease-out;
+}
+
+:root {
+  /* Light Mode Palette */
+  --primary: #f8fafc;
+  --primary-dark: #f1f5f9;
+  --primary-darker: #e2e8f0;
+  --on-primary: #121212;
+  
+  --secondary: #e2e8f0;
+  
+  --accent: #fb8500;
+  --accent-hover: #e57800;
+  --accent-light: #ff9b2e;
+  
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  
+  --border: #cbd5e1;
+  
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  
+  --destructive: #ef4444;
+  
+  --ring: #1ed760;
+  --surface: #f1f5f9;
+  --surface-elevated: #ffffff;
+  
+  --overlay: rgba(255, 255, 255, 0.7);
+
+  --shadow-elevated-val: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-dialog-val: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-inset-val: 0px 1px 0px rgba(0, 0, 0, 0.05) inset;
+}
+
+.dark {
+  /* Spotify-Inspired Dark Mode Palette */
+  --primary: #181818;
+  --primary-dark: #121212;
+  --primary-darker: #000000;
+  --on-primary: #ffffff;
+  
+  --secondary: #272727;
+  
+  --accent: #fb8500;
+  --accent-hover: #e57800;
+  --accent-light: #ff9b2e;
+  
+  --background: #121212;
+  --foreground: #ffffff;
+  
+  --muted: #1f1f1f;
+  --muted-foreground: #b3b3b3;
+  
+  --border: #4d4d4d;
+  
+  --card: #181818;
+  --card-foreground: #ffffff;
+  
+  --destructive: #f3727f;
+  
+  --ring: #1ed760;
+  --surface: #1f1f1f;
+  --surface-elevated: #252525;
+  
+  --overlay: rgba(0, 0, 0, 0.7);
+
+  --shadow-elevated-val: 0px 8px 8px rgba(0, 0, 0, 0.3);
+  --shadow-dialog-val: 0px 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-inset-val: 0px 1px 0px rgb(18, 18, 18), 0px 0px 0px 1px inset rgb(124, 124, 124);
 }
 
 @keyframes fade-in {
@@ -129,9 +202,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Force dark mode variables even without .dark class */
+/* Enable light and dark color schemes */
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
 }
 
 /* ===== HEADINGS ===== */
