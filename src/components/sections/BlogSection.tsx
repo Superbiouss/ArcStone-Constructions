@@ -34,7 +34,7 @@ const posts = [
 
 export default function BlogSection() {
   return (
-    <section id="blog" className="section-padding bg-muted/30 dark:bg-[#0B1120]">
+    <section id="blog" className="section-padding bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>
