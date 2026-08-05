@@ -18,8 +18,8 @@ export default function HeroSection() {
           quality={90}
           sizes="100vw"
         />
-        {/* Transparent blur overlay — no color tint, just frosted glass for readability */}
-        <div className="absolute inset-0 backdrop-blur-[2px] bg-black/40" />
+        {/* Dark overlay matching the CTA section */}
+        <div className="absolute inset-0 bg-[#121212]/90" />
       </div>
 
       {/* Content */}
