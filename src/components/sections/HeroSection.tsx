@@ -82,7 +82,7 @@ export default function HeroSection() {
           <ScrollReveal delay={500}>
             <div className="mt-16 flex items-center gap-8 text-white/50 font-body text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 Currently taking projects
               </div>
               <div className="hidden sm:block h-4 w-px bg-white/20" />

@@ -81,14 +81,14 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-[#121212]/95 backdrop-blur-xl border-b border-border'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-[1440px] transition-all duration-300"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className={`w-full rounded-full transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#121212]/90 backdrop-blur-xl border border-white/10 shadow-2xl'
+            : 'bg-[#121212]/40 backdrop-blur-md border border-white/5'
+        }`}>
+          <div className="flex items-center justify-between h-16 sm:h-[72px] px-4 sm:px-6 lg:px-8">
             {/* Logo */}
             <a
               href="#home"
@@ -116,7 +116,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`relative px-4 py-2 text-sm font-body font-bold transition-colors duration-200 rounded-full cursor-pointer
+                  className={`relative px-2.5 xl:px-4 py-2 text-[13px] xl:text-sm font-body font-bold transition-colors duration-200 rounded-full cursor-pointer
                     ${activeSection === link.href.replace('#', '')
                       ? 'text-white'
                       : 'text-muted-foreground hover:text-white hover:bg-muted'
@@ -138,7 +138,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-                className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-accent hover:bg-accent-hover text-[#000000] text-xs font-body font-bold uppercase tracking-[0.1em] rounded-full transition-all duration-200 hover:scale-105 cursor-pointer"
+                className="hidden sm:flex items-center gap-2 px-5 py-2 lg:px-6 lg:py-2.5 bg-accent hover:bg-accent-hover text-[#000000] text-[10px] lg:text-xs font-body font-bold uppercase tracking-[0.1em] rounded-full transition-all duration-200 hover:scale-105 cursor-pointer"
               >
                 <Phone size={15} />
                 Get Consultation
