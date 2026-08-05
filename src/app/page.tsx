@@ -1,17 +1,19 @@
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import TrustIndicators from '@/components/sections/TrustIndicators';
 import AboutSection from '@/components/sections/AboutSection';
 import ServicesSection from '@/components/sections/ServicesSection';
-import WhyChooseUs from '@/components/sections/WhyChooseUs';
-import ProcessSection from '@/components/sections/ProcessSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
-import FAQSection from '@/components/sections/FAQSection';
-import BlogSection from '@/components/sections/BlogSection';
-import CTASection from '@/components/sections/CTASection';
-import ContactSection from '@/components/sections/ContactSection';
+
+const WhyChooseUs = dynamic(() => import('@/components/sections/WhyChooseUs'));
+const ProcessSection = dynamic(() => import('@/components/sections/ProcessSection'));
+const TestimonialsSection = dynamic(() => import('@/components/sections/TestimonialsSection'));
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection'));
+const BlogSection = dynamic(() => import('@/components/sections/BlogSection'));
+const CTASection = dynamic(() => import('@/components/sections/CTASection'));
+const ContactSection = dynamic(() => import('@/components/sections/ContactSection'));
 
 export default function Home() {
   return (
@@ -22,9 +24,9 @@ export default function Home() {
         <TrustIndicators />
         <AboutSection />
         <ServicesSection />
+        <PortfolioSection />
         <WhyChooseUs />
         <ProcessSection />
-        <PortfolioSection />
         <TestimonialsSection />
         <FAQSection />
         <BlogSection />
